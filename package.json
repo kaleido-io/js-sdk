@@ -11,7 +11,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "npm run clean && npm run build:esm && npm run build:umd && npm run build:esm:esbuild && npm run build:tsc",
+    "build": "npm run clean && npm run build:tsc",
     "build:esm:esbuild": "node ./scripts/esm.config.js",
     "build:umd": "node ./scripts/umd.config.js",
     "build:tsc": "tsc --module commonjs",
@@ -75,6 +75,7 @@
     "cross-sha256": "^1.2.0",
     "crypto-browserify": "^3.12.0",
     "ethers": "^5.7.2",
+    "expo-file-system": "~15.2.2",
     "ffjavascript": "^0.2.57",
     "ipfs-http-client": "56.0.3",
     "rfc4648": "^1.5.2",

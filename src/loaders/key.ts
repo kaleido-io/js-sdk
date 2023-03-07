@@ -1,4 +1,4 @@
-import * as fs from 'fs';
+import * as FileSystem from 'expo-file-system';
 
 /**
  * Loader interface to load from different sources
@@ -32,7 +32,8 @@ export class FSKeyLoader implements IKeyLoader {
     if (isBrowser()) {
       throw new Error('can not use fs loader in the browser');
     }
-    const data = await fs.readFileSync(`${this.dir}/${path}`);
-    return new Uint8Array(data);
+    const data = await FileSystem.readAsStringAsync(`${this.dir}/${path}`);
+    const encoder = new TextEncoder();
+    return encoder.encode(data);
   }
 }
